@@ -23,6 +23,8 @@ return $config
         '@PhpCsFixer' => true,
         '@PSR12' => true, // PSR2 を拡張したもの
 
-        'declare_strict_types' => true, //
+        'declare_strict_types' => true,
+        'php_unit_internal_class' => false,
+        'php_unit_test_class_requires_covers' => false,
     ])
     ->setFinder($finder);
