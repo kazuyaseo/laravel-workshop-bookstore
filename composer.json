@@ -38,6 +38,11 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
+        ],
         "test": "@php artisan test",
         "stan": "vendor/bin/phpstan analyse",
         "lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --dry-run --diff",
