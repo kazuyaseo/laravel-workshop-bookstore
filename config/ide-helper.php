@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+use Spatie\Macroable\Macroable;
+
 return [
 
     /*
@@ -70,7 +74,7 @@ return [
     |
     */
 
-    'write_model_magic_where' => true,
+    'write_model_magic_where' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -92,7 +96,7 @@ return [
     |
     */
 
-    'write_model_relation_count_properties' => true,
+    'write_model_relation_count_properties' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -122,8 +126,8 @@ return [
     'include_helpers' => false,
 
     'helper_files' => [
-        base_path() . '/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
-        base_path() . '/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php',
+        base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+        base_path().'/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php',
     ],
 
     /*
@@ -346,7 +350,7 @@ return [
     */
     'macroable_traits' => [
         Filament\Support\Concerns\Macroable::class,
-        Spatie\Macroable\Macroable::class,
+        Macroable::class,
     ],
 
 ];
