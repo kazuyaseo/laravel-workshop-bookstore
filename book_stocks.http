@@ -1,0 +1,11 @@
+GET http://localhost:8000/api/books/1/stocks
+Content-Type: application/json
+
+###
+
+PATCH http://localhost:8000/api/books/2/stocks
+Content-Type: application/json
+
+{
+  "quantity_change": 10
+}
