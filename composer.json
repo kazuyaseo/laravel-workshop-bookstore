@@ -44,7 +44,7 @@
             "@php artisan ide-helper:meta"
         ],
         "test": "@php artisan test",
-        "stan": "vendor/bin/phpstan analyse",
+        "stan": "vendor/bin/phpstan analyse --memory-limit=-1",
         "lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --dry-run --diff",
         "lint:fix": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix"
     },
