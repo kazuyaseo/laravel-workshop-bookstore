@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Database\Factories\BookStockFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Carbon\CarbonImmutable;
@@ -22,6 +24,9 @@ use Carbon\CarbonImmutable;
  */
 class BookStock extends Model
 {
+    /** @use HasFactory<BookStockFactory> */
+    use HasFactory;
+
     /**
      * @var null
      */
