@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature;
 
 use App\Models\Book;
@@ -58,8 +60,8 @@ class BookControllerTest extends TestCase
                 ->whereType('id', 'integer')
                 ->where('title', 'テスト本')
                 ->where('isbn', 'xxx-xxx-xxx-xxx')
-                ->where('created_at','2024-01-01T00:00:00.000000Z')
-                ->where('updated_at','2024-01-01T00:00:00.000000Z')
+                ->where('created_at', '2024-01-01T00:00:00.000000Z')
+                ->where('updated_at', '2024-01-01T00:00:00.000000Z')
         );
     }
 
@@ -79,8 +81,8 @@ class BookControllerTest extends TestCase
                 ->where('id', $book->id)
                 ->where('title', $book->title)
                 ->where('isbn', $book->isbn)
-                ->where('created_at', $book->created_at->toJSON())
-                ->where('updated_at', $book->updated_at->toJSON())
+                ->where('created_at', $book->created_at?->toJSON())
+                ->where('updated_at', $book->updated_at?->toJSON())
         );
     }
 
