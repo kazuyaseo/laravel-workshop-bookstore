@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Book;
@@ -32,21 +34,22 @@ class BookStockController
     {
         // バリデーション
         $validator = Validator::make($request->all(), [
-            'quantity_change' => ['required', 'integer']
+            'quantity_change' => ['required', 'integer'],
         ]);
         $validator->validate();
 
         // 増減数
         $quantity = $request->integer('quantity_change');
 
-        return DB::transaction(function () use ($book, $quantity): Response  {
+        return DB::transaction(function () use ($book, $quantity): Response {
             if ($quantity >= 0) {
                 // 増減数が正の数ならその分だけレコードを追加
                 BookStock::query()
-                    ->insert(array_fill(0, $quantity,[
+                    ->insert(array_fill(0, $quantity, [
                         'book_id' => $book->id,
                         'created_at' => now(),
-                    ]));
+                    ]))
+                ;
             } else {
                 // 増減数が負の数ならその分だけレコードを削除
                 // 減少数を正の数に変換
@@ -58,7 +61,8 @@ class BookStockController
                     ->orderBy('id')
                     ->limit($abs)
                     ->lockForUpdate()
-                    ->get();
+                    ->get()
+                ;
 
                 // 在庫が不十分であればエラー
                 if ($stocks->count() < $abs) {
@@ -70,7 +74,8 @@ class BookStockController
                 // 対象を全削除
                 BookStock::query()
                     ->whereIn('id', $stocks->pluck('id'))
-                    ->delete();
+                    ->delete()
+                ;
             }
 
             return response()->noContent();
