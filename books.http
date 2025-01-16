@@ -5,3 +5,23 @@ Content-Type: application/json
     "isbn": "9784297132347",
     "title": "ちょうぜつソフトウェア設計入門――PHPで理解するオブジェクト指向の活用"
 }
+
+###
+
+GET http://localhost:8000/api/books
+Content-Type: application/json
+
+###
+
+GET http://localhost:8000/api/books/1
+Content-Type: application/json
+
+###
+
+PUT http://localhost:8000/api/books/1
+Content-Type: application/json
+
+{
+    "isbn": "xxx",
+    "title": "ちょうぜつソフトウェア設計入門――PHPで理解するオブジェクト指向の活用"
+}
