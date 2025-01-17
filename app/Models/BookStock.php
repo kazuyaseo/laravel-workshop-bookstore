@@ -22,6 +22,9 @@ use Carbon\CarbonImmutable;
  */
 class BookStock extends Model
 {
+    /**
+     * @var null
+     */
     public const null UPDATED_AT = null;
 
     protected $fillable = [
@@ -35,10 +38,10 @@ class BookStock extends Model
     ];
 
     /**
-     * @return BelongsTo<Book>
+     * @return BelongsTo<Book, $this>
      */
     public function book(): BelongsTo
     {
-        return $this->belongsTo(BookStock::class);
+        return $this->belongsTo(Book::class);
     }
 }
