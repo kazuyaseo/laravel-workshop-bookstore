@@ -11,16 +11,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Carbon\CarbonImmutable;
 
 /**
- * 
- *
  * @property int             $id
  * @property int             $book_id
  * @property CarbonImmutable $created_at
  * @property BookStock       $book
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BookStock newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BookStock newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|BookStock query()
- * @method static \Database\Factories\BookStockFactory factory($count = null, $state = [])
+ * @method static \Database\Factories\BookStockFactory                    factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class BookStock extends Model
