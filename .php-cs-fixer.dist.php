@@ -23,8 +23,20 @@ return $config
         '@PhpCsFixer' => true,
         '@PSR12' => true, // PSR2 を拡張したもの
 
+        // declare(strict_types=1) を強制する
         'declare_strict_types' => true,
+
+        // [@PhpCsFixer]
+        // PHPUnit TestCase に @internal を付与しなくてもよい
         'php_unit_internal_class' => false,
+
+        // [@PhpCsFixer]
+        // @covers* アノテーションのないテストに @coversNothing を付与しない
         'php_unit_test_class_requires_covers' => false,
+
+        // [@PhpCsFixer]
+        // セミコロンを置く場所
+        // メソッドチェインしたときは最後の呼び出し行に置き，改行しない
+        'multiline_whitespace_before_semicolons' => ['strategy' => 'no_multi_line'],
     ])
     ->setFinder($finder);
